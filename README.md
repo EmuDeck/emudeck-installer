@@ -1,0 +1,2 @@
+# emudeck-installer
+Tauri app
