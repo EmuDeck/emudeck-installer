@@ -18,6 +18,9 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+      - name: Set up environment
+        run: sudo apt-get install libgtk-3-dev && export PKG_CONFIG_PATH="/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
+
       - name: Checkout git repo
         uses: actions/checkout@v3
 
