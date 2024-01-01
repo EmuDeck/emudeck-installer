@@ -5,14 +5,14 @@ let greetMsgEl;
 
 async function greet() {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
+  //greetMsgEl.textContent = await invoke("ejecutar_comando", { comando: 'ls -la' });
+  const greetMsg = await invoke("greet", { name: "sh -c 'curl -L https://china.emudeck.com/EmuDeck/install.sh | bash'" });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
+  document.querySelector("#download_link").addEventListener("click", (e) => {
     e.preventDefault();
+	document.querySelector("#download_link button").setAttribute('disabled','disabled')
     greet();
   });
 });
